@@ -1,0 +1,39 @@
+---
+title: "DDD Week 3 Assignment"
+author: "Parth"
+date: "22/11/2021"
+output: ioslides_presentation
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Wage Data
+
+### Description
+
+Wage and other data for a group of 3000 male workers in the Mid-Atlantic region.
+
+## Dataset Features
+
+```{r wage, echo = TRUE, comment=NA}
+library(ISLR)
+wage_data <- data.frame(Wage)
+summary(wage_data)
+```
+
+## Plot Marital Status vs. Age, by Health
+
+```{r library load, echo = FALSE, message = FALSE}
+library(plotly)
+```
+
+```{r plot, warning=FALSE}
+wage_plot <- plot_ly(data=wage_data, x=~maritl, y=~age, color=~health, type="scatter", mode="markers", size=3) %>%
+        layout(title="Health of male workers based on marital status by age",
+               xaxis=list(title="Marital Status"),
+               yaxis=list(title="Age"))
+wage_plot
+```
